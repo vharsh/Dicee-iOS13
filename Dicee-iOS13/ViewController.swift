@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var rightDice: UIImageView!
     @IBOutlet weak var leftDice: UIImageView!
+    var leftIndex = 0;
+    var rightIndex = 0;
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,8 +27,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rollButton(_ sender: UIButton) {
-        leftDice = UIImage(imageLiteralResourceName: "DiceFour")
-        rightDice = UIImage(imageLiteralResourceName: "DiceFour")
+        let images = ["DiceOne", "DiceTwo", "DiceThree", "DiceFour", "DiceFive", "DiceSix"]
+        // random
+        leftDice = UIImage(imageLiteralResourceName: images[leftIndex])
+        rightDice = UIImage(imageLiteralResourceName: images[rightIndex])
+        if leftIndex < 6 && rightIndex < 6 {
+            leftIndex++
+            rightIndex++
+        }
     }
 }
 
